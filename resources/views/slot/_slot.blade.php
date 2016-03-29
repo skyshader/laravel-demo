@@ -1,5 +1,3 @@
-
-
 <div class="form-group slot-box">
 	<div class="row">
 		<div class="col-md-4">

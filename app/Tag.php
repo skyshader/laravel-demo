@@ -7,18 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class Tag extends Model
 {
 
-	protected $fillable = ['name', 'slug'];
+    protected $fillable = ['name', 'slug'];
 
 
-	public function academyTags()
-	{
-		return $this->hasMany(AcademyTag::class);
-	}
+    public function academyTags()
+    {
+        return $this->hasMany(AcademyTag::class);
+    }
 
 
-	public function academies()
-	{
-		return $this->belongsToMany(Academy::class);
-	}
-
+    public function academies()
+    {
+        return $this->belongsToMany(Academy::class);
+    }
 }

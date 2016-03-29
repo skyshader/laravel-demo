@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateImagesTable extends Migration
+class CreateSlotsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,12 @@ class CreateImagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('images', function (Blueprint $table) {
+        Schema::create('slots', function (Blueprint $table) {
             $table->increments('id');
-
-            $table->string('title');
-            $table->string('image_path');
+            
+            $table->tinyInteger('day');
+            $table->time('slot_from');
+            $table->time('slot_to');
             $table->integer('academy_id')->unsigned()->index();
             $table->tinyInteger('status')->default(1);
 
@@ -35,10 +36,10 @@ class CreateImagesTable extends Migration
      */
     public function down()
     {
-        Schema::table('images', function($table)
-        {
+        Schema::table('slots', function ($table) {
+        
                 $table->dropForeign(['academy_id']);
         });
-        Schema::drop('images');
+        Schema::drop('slots');
     }
 }

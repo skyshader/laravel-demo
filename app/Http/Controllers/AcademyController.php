@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
+use App\Http\Requests;
+use App\Http\Requests\CreateAcademyRequest;
+
 use DB;
 use App\Academy;
 use App\Slot;
 use App\Image;
 use App\Tag;
 use App\AcademyTag;
-use Illuminate\Http\Request;
-use App\Http\Requests;
-use App\Http\Requests\CreateAcademyRequest;
 
 class AcademyController extends Controller
 {
@@ -26,6 +28,7 @@ class AcademyController extends Controller
         return view('academy.index', compact('academies'));
     }
 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -37,6 +40,7 @@ class AcademyController extends Controller
         // send the form to create a new academy
         return view('academy.create', compact('tags'));
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -68,6 +72,7 @@ class AcademyController extends Controller
                           ->with('success_message', 'Academy successfully added!');
     }
 
+
     /**
      * Display the specified resource.
      *
@@ -81,6 +86,7 @@ class AcademyController extends Controller
                           ->get()->first();
         return view('academy.show', compact('academy'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -96,6 +102,7 @@ class AcademyController extends Controller
         $tags = Tag::all();
         return view('academy.edit', compact('academy'), compact('tags'));
     }
+
 
     /**
      * Update the specified resource in storage.

@@ -37,8 +37,8 @@ class CreateAcademyTagTable extends Migration
      */
     public function down()
     {
-        Schema::table('academy_tag', function($table)
-        {
+        Schema::table('academy_tag', function ($table) {
+        
             $table->dropForeign(['academy_id']);
             $table->dropForeign(['tag_id']);
         });
