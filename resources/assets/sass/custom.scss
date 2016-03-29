@@ -1,0 +1,158 @@
+$errorColor: #be1322;
+$lightColor: #f9fbfd;
+$mainColor: #41245C;
+
+.custom-nav {
+	background: $mainColor;
+	border: 0;
+	border-radius: 0;
+	border-bottom: 1px solid darken($mainColor, 15%);
+	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+	.navbar-brand {
+		color: $lightColor;
+		i {
+			font-size: 30px;
+			margin-top: -6px;
+		}
+		&:hover {
+			color: lighten($lightColor, 5%);
+		}
+	}
+	.navbar-nav > li {
+		a {
+			color: $lightColor;
+			&:hover {
+				background: darken($mainColor, 5%);
+				color: lighten($lightColor, 5%);
+			}
+			i {
+				font-size: 12px;
+			}
+		}
+		&.active > a {
+			background: darken($mainColor, 10%);
+			color: lighten($lightColor, 10%);
+			&:hover {
+				background: darken($mainColor, 10%);
+				color: lighten($lightColor, 10%);
+			}
+		}
+	}
+}
+
+.container.top-level {
+	padding-top: 50px;
+}
+
+.form-group.required {
+	label:after {
+		content: "*";
+		color: $errorColor;
+	}
+}
+
+.display-block {
+	display: block;
+}
+
+.display-inline {
+	display: inline-block;
+}
+
+.full-width {
+	width: 100%;
+}
+
+.image-group {
+	position: relative;
+	float: left;
+	margin: 0 10px 10px 0;
+	width: 100px;
+	height: 100px;
+	background: $lightColor;
+	border: 1px solid darken( $lightColor, 10% );
+	border-radius: 3px;
+}
+
+.no-margin {
+	margin: 0;
+}
+
+.image-holder {
+	@extend .display-block;
+	@extend .no-margin;
+	position: absolute;
+	top: 0; left: 0; right: 0; bottom: 0;
+	display: table;
+	text-align: center;
+	font-size: 24px;
+    i {
+		display: table-cell;
+	  	vertical-align: middle;
+	  	color: $mainColor;
+		visibility: hidden;
+		color: $errorColor;
+	}
+	&:hover {
+        background: darken( $lightColor, 5% );
+        cursor: pointer;
+    }
+    &:hover i {
+        visibility: visible;
+    }
+    .image-preview {
+    	width: 98px;
+    	height:98px;
+    }
+}
+
+.mt20 {
+	margin-top: 20px;
+}
+
+.errors {
+	font-size: 12px;
+	margin-top: 2px;
+	color: $errorColor;
+}
+
+.header-fixed {
+	position: fixed;
+	width: inherit;
+	z-index: 1;
+	background: rgb(255, 255, 255) none repeat scroll 0% 0%;
+	height: 120px;
+	border-bottom: 1px solid rgb(247, 249, 251);
+	h1 {
+		margin-top: 40px;
+	}
+}
+
+.content-main.top-padded {
+	margin-top: 160px;
+}
+
+.map-fixed {
+	position: fixed;
+	right: 0px;
+	top: 110px;
+	width: 45%;
+	z-index: 1;
+	background: #f2f2f2;
+}
+
+.map-container {
+	height: 75vh;
+	min-height: 300px;
+	border-radius: 4px 0 0 4px;
+	border: 3px solid #fff;
+	border-right: 0;
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+}
+
+.academy-list .list-group-item {
+	&:hover {
+		background: $lightColor;
+		cursor: pointer;
+	}
+}
