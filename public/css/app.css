@@ -5750,5 +5750,105 @@ button.close {
     display: none !important; } }
 
 /* Write some styles here */
+.custom-nav {
+  background: #41245C;
+  border: 0;
+  border-radius: 0;
+  border-bottom: 1px solid #1a0e25;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); }
+  .custom-nav .navbar-brand {
+    color: #f9fbfd; }
+    .custom-nav .navbar-brand i {
+      font-size: 30px;
+      margin-top: -6px; }
+    .custom-nav .navbar-brand:hover {
+      color: white; }
+  .custom-nav .navbar-nav > li a {
+    color: #f9fbfd; }
+    .custom-nav .navbar-nav > li a:hover {
+      background: #341d4a;
+      color: white; }
+    .custom-nav .navbar-nav > li a i {
+      font-size: 12px; }
+  .custom-nav .navbar-nav > li.active > a {
+    background: #271637;
+    color: white; }
+    .custom-nav .navbar-nav > li.active > a:hover {
+      background: #271637;
+      color: white; }
+
+.container.top-level {
+  padding-top: 50px; }
+
+.form-group.required label:after {
+  content: "*";
+  color: #be1322; }
+
+.display-block, .image-holder {
+  display: block; }
+
+.display-inline {
+  display: inline-block; }
+
+.full-width {
+  width: 100%; }
+
+.image-group {
+  position: relative;
+  float: left;
+  margin: 0 10px 10px 0;
+  width: 100px;
+  height: 100px;
+  background: #f9fbfd;
+  border: 1px solid #d3e2f0;
+  border-radius: 3px; }
+
+.no-margin, .image-holder {
+  margin: 0; }
+
+.image-holder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: table;
+  text-align: center;
+  font-size: 24px; }
+  .image-holder i {
+    display: table-cell;
+    vertical-align: middle;
+    color: #41245C;
+    visibility: hidden;
+    color: #be1322; }
+  .image-holder:hover {
+    background: #e6eef7;
+    cursor: pointer; }
+  .image-holder:hover i {
+    visibility: visible; }
+  .image-holder .image-preview {
+    width: 98px;
+    height: 98px; }
+
+.mt20 {
+  margin-top: 20px; }
+
+.errors {
+  font-size: 12px;
+  margin-top: 2px;
+  color: #be1322; }
+
+.header-fixed {
+  position: fixed;
+  width: inherit;
+  z-index: 1;
+  background: white none repeat scroll 0% 0%;
+  height: 120px;
+  border-bottom: 1px solid #f7f9fb; }
+  .header-fixed h1 {
+    margin-top: 40px; }
+
+.content-main.top-padded {
+  margin-top: 160px; }
 
 /*# sourceMappingURL=app.css.map */

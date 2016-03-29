@@ -13,7 +13,30 @@
 
 <body>
 
-	<div class="container">
+	<nav class="navbar navbar-default navbar-fixed-top custom-nav">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/">
+					<i class="glyphicon glyphicon-education"></i>
+				</a>
+				<a class="navbar-brand" href="/">Academia</a>
+			</div>
+			<ul class="nav navbar-nav navbar-right">
+	        	<li class="{{ \Request::is('explore') ? 'active' : '' }}">
+	        		<a href="/explore">
+	        			<i class="glyphicon glyphicon-th"></i> Explore
+	        		</a>
+	        	</li>
+	        	<li class="{{ \Request::is('academy/create') ? 'active' : '' }}">
+	        		<a href="/academy/create">
+	        			<i class="glyphicon glyphicon-plus"></i> Create
+	        		</a>
+	        	</li>
+	        </ul>
+		</div>
+	</nav>
+
+	<div class="container top-level">
 		@yield('content')
 	</div>
 

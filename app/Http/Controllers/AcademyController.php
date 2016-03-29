@@ -6,6 +6,14 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use DB;
+use App\Academy;
+use App\Slot;
+use App\Image;
+use App\Tag;
+use App\AcademyTag;
+use App\Http\Requests\CreateAcademyRequest;
+
 class AcademyController extends Controller
 {
     /**
@@ -26,7 +34,9 @@ class AcademyController extends Controller
      */
     public function create()
     {
-        //
+        $tags = Tag::all();
+        // send the form to create a new academy
+        return view('academy.create', compact('tags'));
     }
 
 
@@ -36,9 +46,28 @@ class AcademyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateAcademyRequest $request)
     {
-        //
+        $academy = new Academy(array(
+            'name' => $request->get('name'),
+            'username' => $request->get('username'),
+            'email' => $request->get('email'),
+            'phone' => $request->get('phone'),
+            'description' => $request->get('description')
+        ));
+        $location = $request->get('latitude') . "," . $request->get('longitude');
+        $academy->setLocationAttribute($location);
+
+        $result = DB::transaction(function () use ($academy, $request) {
+            $academy->save();
+            $academy->addTags($request->get('tags'));
+            $academy->addSlots($request->get('slots'));
+            $academy->addImages($request->file('images'));
+            DB::commit();
+        });
+
+        return redirect()->route('explore')
+                          ->with('success_message', 'Academy successfully added!');
     }
 
 
