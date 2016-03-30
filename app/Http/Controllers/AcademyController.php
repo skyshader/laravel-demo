@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Requests\CreateAcademyRequest;
 
 use DB;
+use Mail;
 use App\Academy;
 use App\Slot;
 use App\Image;
@@ -69,7 +70,7 @@ class AcademyController extends Controller
         });
 
         return redirect()->route('explore')
-                          ->with('success_message', 'Academy successfully added!');
+                         ->with('success_message', 'Academy successfully added!');
     }
 
 
@@ -84,6 +85,9 @@ class AcademyController extends Controller
         $academy = Academy::where('id', $id)
                           ->with('tags', 'slots', 'images')
                           ->get()->first();
+        Mail::send('email.notify', compact('academy'), function ($m) {
+            $m->to('shardendu.kumar@venturepact.com', 'Shardendu Kumar')->subject('Someone Just Viewed An Academy!');
+        });
         return view('academy.show', compact('academy'));
     }
 
