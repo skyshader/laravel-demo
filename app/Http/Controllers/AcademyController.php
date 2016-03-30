@@ -86,7 +86,7 @@ class AcademyController extends Controller
                           ->with('tags', 'slots', 'images')
                           ->get()->first();
         Mail::send('email.notify', compact('academy'), function ($m) {
-            $m->to('shardendu.kumar@venturepact.com', 'Shardendu Kumar')
+            $m->to('ehukewav-9759@yopmail.com', 'Demo User')
               ->subject('Someone Just Viewed An Academy!');
         });
         return view('academy.show', compact('academy'));
