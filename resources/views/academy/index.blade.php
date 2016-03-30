@@ -30,6 +30,8 @@
                             </li>
                         @endforeach
                     </ul>
+
+                    <a class="display-block btn btn-default" href="/academy/create"><strong>Add an Academy</strong></a>
                 @else
                     <div class="text-center">
                         <h3>No academies listed yet.</h3>
